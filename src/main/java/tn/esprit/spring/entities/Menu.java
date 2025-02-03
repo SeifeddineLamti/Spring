@@ -3,27 +3,30 @@ package tn.esprit.spring.entities;
 import jakarta.persistence.*;
 import tn.esprit.spring.entities.enums.TypeMenu;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table
-public class Menu {
+public class Menu implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idMenu;
+    private Long idMenu;
     private String libelleMenu;
     @Enumerated(EnumType.STRING)
     private TypeMenu typeMenu;
-    private float prixTotal;
-    @ManyToOne
-    @JoinColumn(name = "restaurant_id")
-    private Restaurant restaurant;
+    private Float prixTotal;
 
-    @OneToMany(mappedBy = "menu", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "menu")
     private List<Composant> composants;
 
     @OneToMany(mappedBy = "menu")
     private List<Commande> commandes;
+
+    @ManyToMany
+    private List<ChefCuisinier> chefCuisiniers;
+
+
 
     public Menu(long idMenu, String libelleMenu, TypeMenu typeMenu, float prixTotal) {
         this.idMenu = idMenu;

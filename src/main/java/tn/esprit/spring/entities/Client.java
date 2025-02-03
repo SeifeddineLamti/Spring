@@ -1,23 +1,22 @@
 package tn.esprit.spring.entities;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
-import org.springframework.format.annotation.DateTimeFormat;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 @Entity
 @Table
-public class Client {
+public class Client implements Serializable  { //protection de donnee en bytes
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idClient;
+    private Long idClient;
     private String identifiant;
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "UTC")
     private Date datePremiereVisite;
+    @Transient /* ki nheb nestaaemlou fel java menghir ma yetzed fel base*/
+    Integer diff;
     @OneToMany(mappedBy = "client")
     private List<Commande> commandes;
     public Client(long idClient, String identifiant, Date datePremiereVisite) {

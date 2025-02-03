@@ -3,18 +3,17 @@ package tn.esprit.spring.entities;
 import jakarta.persistence.*;
 import tn.esprit.spring.entities.enums.TypeComposant;
 
+import java.io.Serializable;
+
 @Entity
 @Table
-public class DetailComposant {
+public class DetailComposant implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idDetailComposant;
-    private float imc;
+    private Long idDetailComposant;
+    private Float imc;
     @Enumerated(EnumType.STRING)
     private TypeComposant typeComposant;
-    @OneToOne
-    @JoinColumn(name = "composant_id")
-    private Composant composant;
 
     public DetailComposant(long idDetailComposant, float imc, TypeComposant typeComposant) {
         this.idDetailComposant = idDetailComposant;

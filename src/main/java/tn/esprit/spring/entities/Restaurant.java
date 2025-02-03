@@ -2,21 +2,21 @@ package tn.esprit.spring.entities;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table
-public class Restaurant {
+public class Restaurant implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idRestaurant;
+    private Long idRestaurant;
     private String nom;
-    private long nbPlacesMax;
+    private Long nbPlacesMax;
     @ManyToOne
-    @JoinColumn(name = "chaine_restauration_id")
     private ChaineRestauration chaineRestauration;
 
-    @OneToMany(mappedBy = "restaurant")
+    @OneToMany
     private List<Menu> menus;
 
     public Restaurant(long idRestaurant, String nom, long nbPlacesMax) {
