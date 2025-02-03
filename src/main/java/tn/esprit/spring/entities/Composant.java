@@ -2,19 +2,20 @@ package tn.esprit.spring.entities;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
 @Table
-public class Composant {
+public class Composant implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idComposant;
+    private Long idComposant;
     private String comComposant;
-    private float prix;
+    private Float prix;
     @ManyToOne
-    @JoinColumn(name = "menu_id")
     private Menu menu;
 
-    @OneToOne(mappedBy = "composant", cascade = CascadeType.ALL)
+    @OneToOne
     private DetailComposant detailComposant;
 
     public Composant(long idComposant, String comComposant, float prix) {

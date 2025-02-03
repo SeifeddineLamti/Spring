@@ -2,30 +2,26 @@ package tn.esprit.spring.entities;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
 @Table
-public class Commande {
+public class Commande implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idCommande;
+    private Long idCommande;
     private LocalDate dateCommande;
-    private int pourcentageRemise;
-    private float totalRemise;
-    private float totalCommande;
-    private long note;
+    private Integer pourcentageRemise;
+    private Float totalRemise;
+    private Float totalCommande;
+    private Long note;
     @ManyToOne
-    @JoinColumn(name = "client_id")
     private Client client;
 
     @ManyToOne
-    @JoinColumn(name = "menu_id")
     private Menu menu;
 
-    @ManyToOne
-    @JoinColumn(name = "chef_cuisinier_id")
-    private ChefCuisinier chefCuisinier;
 
     public Commande() {
     }

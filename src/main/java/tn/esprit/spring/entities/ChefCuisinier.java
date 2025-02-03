@@ -3,20 +3,22 @@ package tn.esprit.spring.entities;
 import jakarta.persistence.*;
 import tn.esprit.spring.entities.enums.TypeChef;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table
-public class ChefCuisinier {
+public class ChefCuisinier implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idChefCuisinier;
+    private Long idChefCuisinier;
     private String nom;
     private String prenom;
     @Enumerated(EnumType.STRING)
     private TypeChef typeChef;
-    @OneToMany(mappedBy = "chefCuisinier")
-    private List<Commande> commandes;
+
+    @ManyToMany(mappedBy = "chefCuisiniers")
+    private List<Menu> menus;
 
     public ChefCuisinier(long idChefCuisinier, String nom, String prenom, TypeChef typeChef) {
         this.idChefCuisinier = idChefCuisinier;

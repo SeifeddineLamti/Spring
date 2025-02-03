@@ -2,15 +2,16 @@ package tn.esprit.spring.entities;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
 @Table
-public class ChaineRestauration {
+public class ChaineRestauration implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idChaineRestauration;
+    private Long idChaineRestauration;
     private String libelle;
     private LocalDate dateCreation;
     @OneToMany(mappedBy = "chaineRestauration", cascade = CascadeType.ALL)
