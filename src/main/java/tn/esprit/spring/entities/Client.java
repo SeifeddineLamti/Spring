@@ -12,6 +12,7 @@ public class Client implements Serializable  { //protection de donnee en bytes
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idClient;
+    //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     private String identifiant;
     @Temporal(TemporalType.DATE)
     private Date datePremiereVisite;
