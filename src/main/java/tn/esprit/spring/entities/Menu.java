@@ -16,16 +16,12 @@ public class Menu implements Serializable {
     @Enumerated(EnumType.STRING)
     private TypeMenu typeMenu;
     private Float prixTotal;
-
     @OneToMany(mappedBy = "menu")
     private List<Composant> composants;
-
     @OneToMany(mappedBy = "menu")
     private List<Commande> commandes;
-
     @ManyToMany
     private List<ChefCuisinier> chefCuisiniers;
-
 
 
     public Menu(long idMenu, String libelleMenu, TypeMenu typeMenu, float prixTotal) {

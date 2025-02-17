@@ -10,7 +10,7 @@ public class Composant implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idComposant;
-    private String comComposant;
+    private String nomComposant;
     private Float prix;
     @ManyToOne
     private Menu menu;
@@ -18,14 +18,14 @@ public class Composant implements Serializable {
     @OneToOne
     private DetailComposant detailComposant;
 
-    public Composant(long idComposant, String comComposant, float prix) {
+    public Composant(long idComposant, String nomComposant, float prix) {
         this.idComposant = idComposant;
-        this.comComposant = comComposant;
+        this.nomComposant = nomComposant;
         this.prix = prix;
     }
 
-    public Composant(String comComposant, float prix) {
-        this.comComposant = comComposant;
+    public Composant(String nomComposant, float prix) {
+        this.nomComposant = nomComposant;
         this.prix = prix;
     }
 
@@ -40,12 +40,12 @@ public class Composant implements Serializable {
         this.idComposant = idComposant;
     }
 
-    public String getComComposant() {
-        return comComposant;
+    public String getnomComposant() {
+        return nomComposant;
     }
 
-    public void setComComposant(String comComposant) {
-        this.comComposant = comComposant;
+    public void setnomComposant(String nomComposant) {
+        this.nomComposant = nomComposant;
     }
 
     public float getPrix() {
@@ -60,7 +60,7 @@ public class Composant implements Serializable {
     public String toString() {
         return "Composant{" +
                 "idComposant=" + idComposant +
-                ", comComposant='" + comComposant + '\'' +
+                ", nomComposant='" + nomComposant + '\'' +
                 ", prix=" + prix +
                 '}';
     }
