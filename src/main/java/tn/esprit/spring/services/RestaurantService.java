@@ -1,17 +1,21 @@
 package tn.esprit.spring.services;
 
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import tn.esprit.spring.entities.Restaurant;
 import tn.esprit.spring.repositories.RestaurantRepository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
+@AllArgsConstructor
 public class RestaurantService implements IRestaurantService{
-    private final RestaurantRepository restaurantRepository;
+    private RestaurantRepository restaurantRepository;
 
-    public RestaurantService(RestaurantRepository restaurantRepository) {
-        this.restaurantRepository = restaurantRepository;
-    }
+//    public RestaurantService(RestaurantRepository restaurantRepository) {
+//        this.restaurantRepository = restaurantRepository;
+//    }
 
     @Override
     public List<Restaurant> retrieveAllRestaurants() {

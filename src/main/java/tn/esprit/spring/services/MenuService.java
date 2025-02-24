@@ -1,17 +1,17 @@
 package tn.esprit.spring.services;
 
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import tn.esprit.spring.entities.Menu;
 import tn.esprit.spring.repositories.MenuRepository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
+@AllArgsConstructor
 public class MenuService implements IMenuService{
-    private final MenuRepository menuRepository;
-
-    public MenuService(MenuRepository menuRepository) {
-        this.menuRepository = menuRepository;
-    }
+    private MenuRepository menuRepository;
 
     @Override
     public List<Menu> retrieveAllMenus() {

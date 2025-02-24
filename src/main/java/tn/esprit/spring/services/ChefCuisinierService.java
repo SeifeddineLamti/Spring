@@ -1,17 +1,17 @@
 package tn.esprit.spring.services;
 
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import tn.esprit.spring.entities.ChefCuisinier;
 import tn.esprit.spring.repositories.ChefCuisinierRepository;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
+@AllArgsConstructor
 public class ChefCuisinierService implements IChefCuisinierService{
-    private final ChefCuisinierRepository chefCuisinierRepository;
+    private ChefCuisinierRepository chefCuisinierRepository;
 
-    public ChefCuisinierService(ChefCuisinierRepository chefCuisinierRepository) {
-        this.chefCuisinierRepository = chefCuisinierRepository;
-    }
 
     @Override
     public List<ChefCuisinier> retrieveAllChefs() {

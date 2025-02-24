@@ -1,17 +1,16 @@
 package tn.esprit.spring.services;
 
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import tn.esprit.spring.entities.DetailComposant;
 import tn.esprit.spring.repositories.DetailComposantRepository;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
+@AllArgsConstructor
 public class DetailComposantService implements IDetailComposantService{
-    private final DetailComposantRepository detailComposantRepository;
-
-    public DetailComposantService(DetailComposantRepository detailComposantRepository) {
-        this.detailComposantRepository = detailComposantRepository;
-    }
+    private DetailComposantRepository detailComposantRepository;
 
     @Override
     public List<DetailComposant> retrieveAllDetails() {

@@ -1,13 +1,17 @@
 package tn.esprit.spring.services;
 
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import tn.esprit.spring.entities.Client;
 import tn.esprit.spring.repositories.ClientRepository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
+@AllArgsConstructor
 public class ClientService implements IClientService{
-    ClientRepository clientRepository;
+    private ClientRepository clientRepository;
     @Override
     public List<Client> retrieveAllClients() {
         return clientRepository.findAll();

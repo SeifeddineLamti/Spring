@@ -1,23 +1,23 @@
 package tn.esprit.spring.services;
 
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import tn.esprit.spring.entities.Commande;
 import tn.esprit.spring.repositories.CommandeRepository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
+@AllArgsConstructor
 public class CommandeService implements ICommandeService{
-    private final CommandeRepository commandeRepository;
-
-    public CommandeService(CommandeRepository commandeRepository) {
-        this.commandeRepository = commandeRepository;
-    }
+    private CommandeRepository commandeRepository;
 
     @Override
     public List<Commande> retrieveAllCommandes() {
         return commandeRepository.findAll();
     }
-
+    
     @Override
     public Commande addCommande(Commande e) {
         return commandeRepository.save(e);

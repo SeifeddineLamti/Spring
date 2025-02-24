@@ -11,5 +11,5 @@ import java.util.List;
 public interface CommandeRepository extends JpaRepository<Commande,Long> {
     List<Commande> findByClientIdClient(Long idClient);
     List<Commande> findByClientIdClientAndDateCommandeBetween(Long idClient, LocalDate d1, LocalDate d2);
-    List<Commande> findByDateCommandeBetweenOrderByNoteAndTotalCommandeAsc(LocalDate d1, LocalDate d2,Long note,Float prix);
+    List<Commande> findByDateCommandeBetweenOrderByNoteAscTotalCommandeAsc(LocalDate d1, LocalDate d2);
 }

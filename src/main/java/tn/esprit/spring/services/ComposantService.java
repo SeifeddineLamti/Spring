@@ -1,17 +1,17 @@
 package tn.esprit.spring.services;
 
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import tn.esprit.spring.entities.Composant;
 import tn.esprit.spring.repositories.ComposantRepository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
+@AllArgsConstructor
 public class ComposantService implements IComposantService{
-    private final ComposantRepository composantRepository;
-
-    public ComposantService(ComposantRepository composantRepository) {
-        this.composantRepository = composantRepository;
-    }
+    private ComposantRepository composantRepository;
 
     @Override
     public List<Composant> retrieveAllComposants() {
