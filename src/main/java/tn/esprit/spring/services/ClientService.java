@@ -28,9 +28,8 @@ public class ClientService implements IClientService{
     }
 
     @Override
-    public List<Client> retrieveClient(Long idClient) {
-        Optional<Client> client = clientRepository.findById(idClient);
-        return (List<Client>) client.orElse(null);
+    public Client retrieveClient(Long idClient) {
+        return clientRepository.findById(idClient).orElse(null);
     }
 
     @Override

@@ -29,9 +29,9 @@ public class ChefCuisinierService implements IChefCuisinierService{
     }
 
     @Override
-    public List<ChefCuisinier> retrieveChef(Long idChef) {
+    public ChefCuisinier retrieveChef(Long idChef) {
         Optional<ChefCuisinier> chef = chefCuisinierRepository.findById(idChef);
-        return chef.map(List::of).orElse(null);
+        return chef.orElse(null);
     }
 
     @Override

@@ -8,7 +8,7 @@ public interface IChefCuisinierService {
     List<ChefCuisinier> retrieveAllChefs();
     ChefCuisinier addChef(ChefCuisinier e);
     ChefCuisinier updateChef(ChefCuisinier e);
-    List<ChefCuisinier> retrieveChef(Long idChef);
+    ChefCuisinier retrieveChef(Long idChef);
     void removeChef(Long idChef);
     List<ChefCuisinier> addChefs(List<ChefCuisinier> chefs);
 }
